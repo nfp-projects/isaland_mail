@@ -10,3 +10,15 @@ sudo: false
 cache:
   directories:
     - node_modules
+
+addons:
+  postgresql: "9.4"
+  apt:
+    packages:
+    - pdftk
+
+before_script:
+  - psql -c 'create database test;' -U postgres
+
+services:
+  - postgresql
