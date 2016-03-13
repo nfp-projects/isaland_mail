@@ -4,7 +4,9 @@
   "description": "Web UI for mail management",
   "main": "index.js",
   "scripts": {
-    "test": "env NODE_ENV=test mocha --recursive --use_strict"
+    "lint": "eslint .",
+    "test": "env NODE_ENV=test mocha --compilers js:babel-register --recursive --use_strict",
+    "start-dev": "NODE_ENV=development nodemon index | bunyan"
   },
   "repository": {
     "type": "git",
@@ -24,5 +26,36 @@
   "bugs": {
     "url": "https://github.com/nfp-projects/isaland_mail/issues"
   },
-  "homepage": "https://github.com/nfp-projects/isaland_mail#readme"
+  "homepage": "https://github.com/nfp-projects/isaland_mail#readme",
+  "dependencies": {
+    "app-root-path": "^1.0.0",
+    "babel-plugin-syntax-async-functions": "^6.5.0",
+    "babel-plugin-transform-async-to-generator": "^6.7.0",
+    "babel-preset-es2015-node5": "^1.1.2",
+    "babel-register": "^6.7.2",
+    "bookshelf": "^0.9.2",
+    "bunyan": "^1.7.1",
+    "install": "^0.6.0",
+    "knex": "^0.10.0",
+    "koa": "^2.0.0-alpha.3",
+    "koa-body": "^1.4.0",
+    "koa-bodyparser": "^3.0.0",
+    "koa-jade": "^2.1.0",
+    "koa-router": "^7.0.1",
+    "lodash": "^4.6.1",
+    "nconf": "^0.8.4",
+    "node-uuid": "^1.4.7",
+    "npm": "^3.8.1",
+    "pg": "^4.5.1"
+  },
+  "devDependencies": {
+    "assert-extended": "^1.0.1",
+    "babel-eslint": "^5.0.0",
+    "eslint": "2.2",
+    "eslint-config-airbnb": "^6.1.0",
+    "eslint-plugin-mocha": "^2.0.0",
+    "mocha": "^2.4.5",
+    "sinon": "^1.17.3",
+    "sinon-as-promised": "^4.0.0"
+  }
 }

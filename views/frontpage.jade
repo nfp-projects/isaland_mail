@@ -1,0 +1,78 @@
+doctype html
+html(lang="en")
+  head
+    title Isaland Email Management
+    include ./css
+  body
+    h1 Isaland Email Management
+    #container.col
+      #domains
+        h3 Domains
+        ul
+          each item in domains
+            li
+              span= item.domain
+              if (now - item.created.getTime() < 1000 * 60 * 60 * 24)
+                span  -
+                form(action='/domains/' + item.domain + '/delete', method='POST')
+                  input(type='hidden', name='domain', value=item.domain)
+                  input(type='submit', value='Delete')
+        form(action='/domains', method='POST')
+          input(type='text', name='domain')
+          input(type='submit', value='Create')
+        p.
+          Make sure above domains have the following DNS Settings:
+        table(cellspacing=0, cellpadding=0)
+          tr
+            th type
+            th name
+            th content
+          tr
+            td CNAME
+            td autoconfig.*domain*
+            td autoconfig.isaland.is
+          tr
+            td CNAME
+            td mail.*domain*
+            td mail.isaland.is
+      #users
+        h3 Users
+        ul
+          each item in emails
+            li
+              span= item.email
+              if (now - item.created.getTime() < 1000 * 60 * 60 * 24)
+                span  -
+                form(action='/users/' + item.id + '/delete', method='POST')
+                  input(type='hidden', name='id', value=item.id)
+                  input(type='submit', value='Delete')
+        form(action='/users', method='POST')
+          table(cellspacing=0, cellpadding=0)
+            tr
+              td Email:
+              td
+                input(type='text', name='email')
+            tr
+              td Password:
+              td
+                input(type='password', name='password')
+            tr
+              td
+                input(type='submit', value='Create')
+      #extra
+        h3 Extra
+        p.
+          DNS settings important for isaland.is:
+        table(cellspacing=0, cellpadding=0)
+          tr
+            th type
+            th name
+            th content
+          tr
+            td CNAME
+            td autoconfig.isaland.is
+            td autoconfig.nfp.is
+          tr
+            td CNAME
+            td mail.isaland.is
+            td mail.nfp.is
