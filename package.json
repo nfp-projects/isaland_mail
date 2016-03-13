@@ -1,0 +1,28 @@
+{
+  "name": "isaland_mail",
+  "version": "1.0.0",
+  "description": "Web UI for mail management",
+  "main": "index.js",
+  "scripts": {
+    "test": "env NODE_ENV=test mocha --recursive --use_strict"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nfp-projects/isaland_mail.git"
+  },
+  "keywords": [
+    "koa",
+    "jade",
+    "web",
+    "ui",
+    "mail",
+    "postfix",
+    "postgres"
+  ],
+  "author": "Jonatan Nilsson",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/nfp-projects/isaland_mail/issues"
+  },
+  "homepage": "https://github.com/nfp-projects/isaland_mail#readme"
+}
