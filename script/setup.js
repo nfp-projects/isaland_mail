@@ -13,6 +13,8 @@ knexConfig.pool = { min: 1, max: 1 }
 
 let knex = require('knex')(knexConfig)
 
+log.info(knexConfig, 'Connected to database')
+
 let setup = module.exports = () =>
   knex.migrate.latest({
     directory: appRoot.resolve('/migrations'),
