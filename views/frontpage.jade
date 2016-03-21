@@ -1,10 +1,10 @@
 doctype html
 html(lang="en")
   head
-    title Isaland Email Management
+    title Jökulá Email Management
     include ./css
   body
-    h1 Isaland Email Management
+    h1 Jökulá Email Management
     #container.col
       #domains
         h3 Domains
@@ -26,15 +26,23 @@ html(lang="en")
           tr
             th type
             th name
-            th content
+            th gildi
+            th ttl
           tr
             td CNAME
             td autoconfig.*domain*
-            td autoconfig.isaland.is
+            td autoconfig.jokuland.is
+            td 3600
           tr
             td CNAME
             td mail.*domain*
-            td mail.isaland.is
+            td mail.jokuland.is
+            td 3600
+          tr
+            td MX
+            td *domain*
+            td mx1.jokuland.is
+            td 3600
       #users
         h3 Users
         ul
@@ -62,17 +70,30 @@ html(lang="en")
       #extra
         h3 Extra
         p.
-          DNS settings important for isaland.is:
+          DNS settings important for jokuland.is:
         table(cellspacing=0, cellpadding=0)
           tr
             th type
             th name
-            th content
+            th gildi
+            th ttl
           tr
             td CNAME
-            td autoconfig.isaland.is
+            td autoconfig.jokuland.is
             td autoconfig.nfp.is
+            td 3600
           tr
             td CNAME
-            td mail.isaland.is
+            td mail.jokuland.is
             td mail.nfp.is
+            td 3600
+          tr
+            td CNAME
+            td mx1.jokuland.is
+            td mx1.nfp.is
+            td 3600
+          tr
+            td MX
+            td jokuland.is
+            td mx1.jokuland.is
+            td 3600
